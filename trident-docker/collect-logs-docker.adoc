@@ -5,11 +5,12 @@ keywords: deploy, astra trident, trident for docker, docker, logs, binary, manag
 summary: トラブルシューティングに役立つログを収集できます。ログの収集方法は、 Docker プラグインの実行方法によって異なります。 
 ---
 = ログを収集します
-:hardbreaks:
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/
 
+
+
+
+== ログを収集します
 
 トラブルシューティングに役立つログを収集できます。ログの収集方法は、 Docker プラグインの実行方法によって異なります。
 
