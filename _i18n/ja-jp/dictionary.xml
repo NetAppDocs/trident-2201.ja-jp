@@ -1285,7 +1285,6 @@
   <block id="e3f688f3aa653574b3253640aa98f47c" category="cell">SVM で新しいボリュームをプロビジョニングする際に使用するプレフィックスを指定します。設定後に更新することはできません</block>
   <block id="a996d2f8e072c583d6cc26aa1e4aba87" category="cell">Trident</block>
   <block id="b6ea9c09f8ac215ea68be83cd0240aac" category="cell">使用率がこの割合を超えている場合は、プロビジョニングが失敗します。* Amazon FSX for ONTAP * には適用されません</block>
-  <block id="c07510d6ca04643a0f81501d2407311b" category="cell">要求されたボリュームサイズがエコノミードライバーのこの値を超えている場合、プロビジョニングは失敗します。</block>
   <block id="9d96dfa28e7454a1119de523123a1e05" category="cell">“”（デフォルトでは適用されません）</block>
   <block id="c9a303edbc714d051896c3a678e59a8a" category="cell">'lunsPerFlexvol</block>
   <block id="79892588cbecd0b88729ea1a55b2a3a4" category="cell">FlexVol あたりの最大 LUN 数。有効な範囲は 50 、 200 です</block>
@@ -3143,4 +3142,5 @@
   <block id="d5d195efeafde24a6a22effd3dd39339" category="list-text">認証情報ベース：ファイルシステムには「 fsxadmin 」ユーザを、 SVM には「 vsadmin 」ユーザを使用できます。</block>
   <block id="be5736bb27c63c0a404a25abaa033c45" category="admonition">バックエンドの構成には'fsxadmin'ではなく'vsadminユーザーを使用することを強くお勧めしますAstra Trident は、このユーザ名とパスワードを使用して FSX ファイルシステムと通信します。</block>
   <block id="3f44baef815aed01560d6764fea49ebc" category="cell">CVSボリュームに使用するGCPネットワーク</block>
+  <block id="66896c99fb06e0b6c86498b249f8217a" category="cell">要求されたボリュームサイズがこの値を超えている場合、プロビジョニングが失敗します。</block>
 </blocks>
