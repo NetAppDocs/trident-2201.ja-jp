@@ -16,6 +16,7 @@ Trident のオペレータが、 Astra Trident を導入できます。Trident �
 
 TIP: をまだ理解していない場合は、を参照してください link:../trident-concepts/intro.html["基本概念"^]今こそ、そのための絶好の機会です。
 
+.必要なもの
 Astra Trident を導入するには、次の前提条件を満たしている必要があります。
 
 * Kubernetes 1.17 以降を実行するサポート対象の Kubernetes クラスタに対するすべての権限が必要です。
@@ -35,6 +36,7 @@ Astra Trident を導入するには、次の前提条件を満たしている必
 
 Helm を使用して Trident オペレータを導入するには、以下の手順を実行します。
 
+.必要なもの
 上記の前提条件に加え、 Helm を使用して Trident Operator を導入するには、次のものが必要です。
 
 * Kubernetes 1.17 以降
@@ -188,7 +190,7 @@ IMPORTANT: Kubernetes クラスタには、オペレータのインスタンス�
 
 
 
-=== 手順 3 ： Trident をインストールする
+=== 手順3：作成 `TridentOrchestrator` Tridentをインストール
 
 これで、オペレータを使って Astra Trident をインストールする準備ができました。これには 'TridentOrchestrator を作成する必要がありますTrident インストーラには 'TridentOrchestrator を作成するための定義例が付属していますこれは 'trident' 名前空間にインストールされます
 
