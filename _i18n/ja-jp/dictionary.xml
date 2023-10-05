@@ -972,7 +972,6 @@
   <block id="43752d169c5729fffa3a6557a0978cb8" category="list-text">「 netappcloudvolumes .admin 」ロールを持つ Google Cloud サービスアカウント</block>
   <block id="5d6ade9bdfebc79abf4c55e55a2c9941" category="list-text">CVS サービスアカウントの API キーファイル</block>
   <block id="7d0ee86ffc673e47ce20265e1e21317f" category="inline-link">GCP 上の CVS サービスタイプ</block>
-  <block id="1f57356f89e79e6730290eddcf7b84ee" category="paragraph">Astra Trident に、小規模なボリュームがデフォルトでサポートされるようになりました<block ref="fc2935a8a76e337f6e814f65964a47b6" category="inline-link-rx"></block>。「 torageClass=software 」で作成されたバックエンドの場合、ボリュームのプロビジョニングサイズは最小 300GiB になります。現在、 CVS ではこの機能が限定的な可用性で提供されており、テクニカルサポートは提供されていません。1TiB 未満のボリュームにアクセスするには、ユーザがサインアップする必要があります<block ref="daab940ca038632df7b3bcdb2ce67b4b" category="inline-link-rx"></block>。** 非本番 ** のワークロードでは 1TiB 未満のボリュームを使用することを推奨します。</block>
   <block id="adf38902d2794fb5eb0ede6324a90db7" category="admonition">デフォルトの CVS サービスタイプ（「 torageClass=software 」）を使用してバックエンドを導入する場合、該当するプロジェクト番号とプロジェクト ID について、 GCP の 1TiB 未満のボリューム機能へのアクセス権をユーザが取得する必要があります。これは Astra Trident で sub-1TiB 個のボリュームをプロビジョニングするために必要です。この条件を指定しない場合、 600 GiB 未満の PVC でボリュームの作成が失敗します。を使用して 1TiB 未満のボリュームへのアクセスを取得します<block ref="d5347d47b24e3303f1c7b0ae61e08dc7" category="inline-link-rx"></block>。</block>
   <block id="3e6d0b5d82e6a07b21f37953b4f07f2b" category="paragraph">デフォルトの CVS サービスレベル用に Astra Trident で作成されたボリュームは、次のようにプロビジョニングされます。</block>
   <block id="b0f9c06798383f1aa62530b497a530f7" category="list-text">300GiB 未満の PVC があると、 Astra Trident によって 300GiB の CVS ボリュームが作成されます。</block>
@@ -1449,7 +1448,6 @@
   <block id="d356d628089d439d75e3f85564372658" category="list-text">tridentctl を使用してインストールされます</block>
   <block id="87248f7afe198418bdbedd919695631e" category="list-text">バックエンド定義に「 debugTraceFlags 」を含めると、バックエンドごとにデバッグログを取得することもできます。たとえば、 Trident ログで API 呼び出しとメソッドの逆数を取得するには、「 `debugTraceFlags: {"API":true,"method" :true,}` を指定します。既存のバックエンドには 'tridentctl backend update で構成された 'ebugTraceFlags' を設定できます</block>
   <block id="6cc37a0664d7f97f87d34eadef23dbad" category="list-text">RedHat CoreOS を使用する場合は 'iscsid がワーカー・ノードで有効になっており ' デフォルトで起動されていることを確認しますこの設定には、 OpenShift MachineConfig を使用するか、イグニッションテンプレートを変更します。</block>
-  <block id="4582245538a41243a95713a7d0c21b64" category="list-text">Trident をで使用する際によく発生する問題です<block ref="4568986ef6397d7c901269fc0e190ede" category="inline-link-rx"></block> テナントとクライアントのシークレットが、必要な権限がないアプリケーションの登録から取得された場合です。Trident の要件の詳細については、を参照してください <block ref="c09112d17e34405b7a5c3d246f91583f" category="inline-link-macro-rx"></block> 設定</block>
   <block id="7f0ecdfa510b31b01d331c2760643b83" category="list-text">コンテナへの PV のマウントに問題がある場合は 'rpcbind' がインストールされていて実行されていることを確認してくださいホスト OS に必要なパッケージ・マネージャを使用して 'rpcbind' が実行されているかどうかを確認しますrpcbind サービスのステータスは 'systemctl status rpcbind' またはそれに相当する処理を実行することで確認できます</block>
   <block id="78aeadc89feb4cf244398a7d35a0d656" category="list-text">Trident バックエンドが、以前に作業したことがあるにもかかわらず「 failed 」状態であると報告した場合は、バックエンドに関連付けられている SVM/admin クレデンシャルの変更が原因である可能性があります。「 tridentctl update backend 」または Trident ポッドのバウンスを使用してバックエンド情報を更新すると、この問題は修正されます。</block>
   <block id="f5d517b06fc0b1af5d599776e2f6f1d6" category="inline-link">この blog</block>
@@ -2253,12 +2251,10 @@
   <block id="d06b5297af318d2581021098f6b0d44d" category="section-title">名前空間を対象としたオペレータインストールをアップグレードします</block>
   <block id="ddfa75d059a999aedec16392aae03bc4" category="paragraph">名前空間を対象とした演算子（バージョン 20.07 ～ 20.10 ）を使用してインストールされた Astra Trident のインスタンスからアップグレードするには、次の手順に従います。</block>
   <block id="edf5c542759186ded2c7eeaae6b340a5" category="list-text">既存の Trident インストールのステータスを確認これを行うには、 TridentProvisioner の * Status * を確認してください。ステータスは「 Installed 」になります。</block>
-  <block id="f14a1d8e56a0cbd2826edd38778371f7" category="admonition">ステータスに「更新中」と表示される場合は、続行する前に解決してください。可能なステータス値のリストについては、を参照してください<block ref="6aefd1c9ce8e43313a8c7c92e2fac4f3" category="inline-link-rx"></block>。</block>
   <block id="683d018a2f7c70469fd74ba0eeae2a79" category="list-text">Trident インストーラに付属のマニフェストを使用して、「 TridentOrchestrator 」 CRD を作成します。</block>
   <block id="ede3d39a1c5211985b126b3f166cf601" category="inline-link">Trident リポジトリ</block>
   <block id="af39f09efb6e7b7133433dff92d0fffe" category="list-text">マニフェストを使用して、名前空間を対象とした演算子を削除します。この手順を完了するには、名前空間を対象とした演算子を配備するために使用する 'undle.yaml ファイルが必要です。から 'bundle.yaml を取得できます<block ref="1403b813895a8a78c447fca96240f2ac" category="inline-link-rx"></block>。適切なブランチを使用するようにしてください。</block>
   <block id="5451265740f1553dff7af7814faa5277" category="inline-link-macro">パラメータのリスト</block>
-  <block id="8afea862003d4f613fcffecc022fb20c" category="admonition">名前空間スコープ演算子を削除してクラスタスコープ演算子をインストールする前に、 Trident のインストールパラメータを必要に応じて変更します（たとえば、「 tridentImage 」、「 autosupportImage 」、プライベートイメージリポジトリ、「 imagePullSecrets 」の値を変更します）。更新可能なパラメータの一覧については、を参照してください <block ref="e5ef433069537d0999d9cf3f906affdb" category="inline-link-macro-rx"></block>。</block>
   <block id="5fbede7820945c99130183fd2fd0f4b3" category="paragraph">この段階で 'trident-operator-xxxxxxxxxxxxxxx Pod が削除されます</block>
   <block id="86463d362af5835ff8c3fd6587fbd24f" category="list-text">（オプション）インストールパラメータを変更する必要がある場合は、「 TridentProvisioner 」の仕様を更新します。これらの変更には、コンテナイメージをからプルするためのプライベートイメージレジストリの変更、デバッグログの有効化、イメージプルシークレットの指定などがあります。</block>
   <block id="df486b34cec5fdfba24de79fe6b388d4" category="list-text">クラスタを対象とした演算子をインストールします。</block>
@@ -2304,7 +2300,6 @@
   <block id="8d66ed6671344ec6017707c38250329c" category="admonition">バージョン 19.04 以前のすべてのアップグレードでは、 Astra Trident のメタデータを独自の「 etcd」 オブジェクトから CRD オブジェクトに移行する必要があります。アップグレードの仕組みについては、リリースのドキュメントを確認してください。</block>
   <block id="33966eba1ed0cde6afda5a97ffaffb09" category="inline-link">セキュリティコンテキスト</block>
   <block id="ceb268093ddd5aa9df1769eda5d1c8cd" category="inline-link">入力例：</block>
-  <block id="1ca02e26ff81cefae18a0a8d994ca94a" category="admonition">アップグレードする場合は、 Astra Trident が使用する「 torageClasses 」に「 parameter) .fsType 」を指定することが重要です。既存のボリュームを中断することなく、「 torageClasses 」を削除して再作成できます。これは、強制の ** 要件 ** です<block ref="cafe4c6014d8c45aaac70e49318f1a2a" category="inline-link-rx"></block> SAN ボリュームの場合。。<block ref="25daec0b57549a6ad43dbc62a9e717ca" category="inline-link-rx"></block> directory には、などの例があります<block ref="d308f4d12b21bf269d64643e1eceeeb2" category="inline-link-rx"></block> および<block ref="b6ff3ec2ac914a047085c08d5843e316" category="inline-link-rx"></block>。詳細については、を参照してください <block ref="139a59f2208174d2bf825b80dc580275" category="inline-link-macro-rx"></block>。</block>
   <block id="17cfb8bd7f378fa26b63ee73d467cb82" category="section-title">どのアップグレードパスを選択すればよいですか？</block>
   <block id="46940159293e259bcf0bb4df75448100" category="paragraph">次のいずれかのパスを使用してアップグレードできます。</block>
   <block id="dc1a9a8ad35cc8aa946e0a2e3f959e2b" category="list-text">Trident 演算子を使用する。</block>
@@ -2861,7 +2856,6 @@
   <block id="abbdd4298bb3e525fd172b2bbe5a451c" category="section-title">ONTAP NAS でプロビジョニングされたボリュームに UNIX アクセス権を設定するにはどうすればよいですか。</block>
   <block id="a535e502931280dfaa539ecd1cbdfc0c" category="paragraph">Astra Trident でプロビジョニングしたボリュームに対して UNIX 権限を設定するには、バックエンド定義ファイルにパラメータを設定します。</block>
   <block id="094ef47e6456d60b656401b0f2bbfcbd" category="section-title">ボリュームをプロビジョニングする際に、明示的な ONTAP NFS マウントオプションを設定するにはどうすればよいですか。</block>
-  <block id="84ae0d345d4b749efbbc8103b0770e68" category="paragraph">Trident では、デフォルトでマウントオプションが Kubernetes でどの値にも設定されていません。Kubernetes ストレージクラスでマウントオプションを指定するには、次の例を実行します<block ref="cd55c45fce745b7032050d3a7a9ec326" category="inline-link-rx"></block>。</block>
   <block id="ae6bc3659bb0be0a7d9f98a63775b7c2" category="section-title">プロビジョニングしたボリュームを特定のエクスポートポリシーに設定するにはどうすればよいですか？</block>
   <block id="700a2008fea63d02c24b85f2f75d357e" category="paragraph">適切なホストにボリュームへのアクセスを許可するには、バックエンド定義ファイルに設定されている「 exportPolicy 」パラメータを使用します。</block>
   <block id="9d5813dee71bcbf3d3a03c62354c3e55" category="section-title">ONTAP を使用して Astra Trident 経由でボリューム暗号化を設定する方法を教えてください。</block>
@@ -3008,7 +3002,6 @@
   <block id="c949166d6970748c0094c800daa3324a" category="sidebar">Trident で Astra を管理</block>
   <block id="63d5049791d9d79d86e9a108b0a999ca" category="sidebar">参照</block>
   <block id="324fb1352ffffb105d10013810c42896" category="sidebar">Kubernetes と Astra Trident オブジェクト</block>
-  <block id="086e6c16e3fe8e13c336612ef636aa02" category="sidebar">Astra Trident</block>
   <block id="80fa8f92dc0ebf122ed30a4a88fda343" category="doc">Astra Trident 22.01 のドキュメント</block>
   <block id="5a333b18a215ecfd4457ba0e1732654b" category="section-title">Tridentは、負荷共有ミラーが設定されているSVMでボリュームをプロビジョニングできますか。</block>
   <block id="0e7629426b9d7596800cd5d72f558a7f" category="paragraph">負荷共有ミラーは、NFS経由でデータを提供するSVMのルートボリューム用に作成できます。ONTAP は、Tridentによって作成されたボリュームの負荷共有ミラーを自動的に更新します。ボリュームのマウントが遅延する可能性があります。Tridentを使用して複数のボリュームを作成する場合、ボリュームをプロビジョニングする方法は、負荷共有ミラーを更新するONTAP によって異なります。</block>
@@ -3105,4 +3098,11 @@
   <block id="dd38f906b37d412de7d1c1dcf4cbf31c" category="paragraph"><block ref="dd38f906b37d412de7d1c1dcf4cbf31c" category="inline-link-macro-rx"></block></block>
   <block id="8acb58cbd50ef1b468a020ee0bd351d3" category="inline-link-macro"><block ref="8acb58cbd50ef1b468a020ee0bd351d3" category="inline-link-rx"></block></block>
   <block id="2352c4e1f4d0024ade0869e00e6243f4" category="paragraph"><block ref="2352c4e1f4d0024ade0869e00e6243f4" category="inline-link-macro-rx"></block></block>
+  <block id="db119bf2f5afe50fb07cda934d0a0910" category="admonition">ステータスがになっている場合<block ref="6909beea5b50605780e3411f879fe916" prefix=" " category="inline-code"></block>をクリックし、続行する前に解決してください。可能なステータス値のリストについては、を参照してください <block ref="f3075589264229c97b562eda3fd87b58" category="inline-link-macro-rx"></block>。</block>
+  <block id="ededd8902bec1cd65fbb8766bfb21070" category="admonition">Tridentのインストールパラメータに必要な変更を加えます（の値の変更など）<block ref="d771848c80f96e5954a8658655cf79d7" prefix=" " category="inline-code"></block>、<block ref="7ecc687ea7566f05fd13fde7be607bfc" prefix=" " category="inline-code"></block>、プライベートイメージリポジトリ、および提供<block ref="0d9b54b29da54379cca6b8782b9faae5" prefix=" " category="inline-code"></block>)名前空間を対象とした演算子を削除した後、クラスタを対象とした演算子をインストールする前。更新可能なパラメータの一覧については、を参照してください <block ref="a0446138542e129426b1f6ff199acfa3" category="inline-link-macro-rx"></block>。</block>
+  <block id="e8fe26bf5b53940e7e52b3f166871cc3" category="admonition">アップグレードするときは、この作業を行うことが重要です<block ref="f6e7f85d8aee15940665bf722f7afac2" prefix=" " category="inline-code"></block> インチ<block ref="f652904c3bfb48fb25a0a75f485f0ff6" prefix=" " category="inline-code"></block> Astra Tridentが使用。削除して再作成することができます<block ref="f652904c3bfb48fb25a0a75f485f0ff6" prefix=" " category="inline-code"></block> 実行前のボリュームの中断はなし。これは、強制の ** 要件 ** です<block ref="cafe4c6014d8c45aaac70e49318f1a2a" category="inline-link-rx"></block> SAN ボリュームの場合。。<block ref="25daec0b57549a6ad43dbc62a9e717ca" category="inline-link-rx"></block> directory には、などの例があります<block ref="0ce20df6bd6dcd4e1d745bdf09932b86" category="inline-link-rx"></block><block ref="9abb8c7777ddb413820ee07d5d93aa4a" prefix="[" category="inline-code"></block>^]および<block ref="bab3b119449dc236bcd556fb4b3647ac" category="inline-link-rx"></block><block ref="69ae2d9a6d831af7488e53fec053b77e" prefix="[" category="inline-code"></block>^]をクリックします。
+詳細については、を参照してください <block ref="139a59f2208174d2bf825b80dc580275" category="inline-link-macro-rx"></block>。</block>
+  <block id="1b832ef852805a4e825ca6c6ec5295f7" category="paragraph">Astra Trident に、小規模なボリュームがデフォルトでサポートされるようになりました<block ref="e9e5fc0bc02a6a1b02d344d2f4e0e88a" category="inline-link-rx"></block>。を使用して作成したバックエンドの場合<block ref="c7237d9128f41df56bf2ba9c87fd26e8" prefix=" " category="inline-code"></block>をクリックすると、ボリュームのプロビジョニングサイズが300GiB以上になります。現在、 CVS ではこの機能が限定的な可用性で提供されており、テクニカルサポートは提供されていません。1TiB 未満のボリュームにアクセスするには、ユーザがサインアップする必要があります<block ref="daab940ca038632df7b3bcdb2ce67b4b" category="inline-link-rx"></block>。** 非本番 ** のワークロードでは 1TiB 未満のボリュームを使用することを推奨します。</block>
+  <block id="419c95e5a9e44d427f99debdcf0550c7" category="list-text">Trident をで使用する際によく発生する問題です<block ref="4568986ef6397d7c901269fc0e190ede" category="inline-link-rx"></block> テナントとクライアントのシークレットが、必要な権限がないアプリケーションの登録から取得された場合です。Trident の要件の詳細については、を参照してください <block ref="cd38c25b6345abc8733d2ef72739cd97" category="inline-link-macro-rx"></block> 設定</block>
+  <block id="3e9e53a916f99df7d6286c52e3b7a9d5" category="paragraph">Trident では、デフォルトでマウントオプションが Kubernetes でどの値にも設定されていません。Kubernetes ストレージクラスでマウントオプションを指定するには、次の例を実行します<block ref="fe27d7e6fa26e46ae96377664e7dbdff" category="inline-link-rx"></block>。</block>
 </blocks>
