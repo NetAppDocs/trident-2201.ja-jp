@@ -88,7 +88,7 @@ Trident のオペレータを手動で導入するには、以下の手順を実
 
 === ステップ 1 ： Kubernetes クラスタを確認する
 
-まず、 Linux ホストにログインして、 _working _ 、 link:requirements.html["サポートされる Kubernetes クラスタ"^] に必要な権限があることを確認します。
+まず、 Linux ホストにログインして、 _working _ 、 link:../trident-get-started/requirements.html["サポートされる Kubernetes クラスタ"^] に必要な権限があることを確認します。
 
 
 NOTE: OpenShift では、以降のすべての例で「 kubectl 」ではなく「 OC 」を使用し、「 OC login-u SYSTEM ： admin 」または「 OC login-u kube-admin 」を実行して最初に「 *system:admin 」としてログインします。
