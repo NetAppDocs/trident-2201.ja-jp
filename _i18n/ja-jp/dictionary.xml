@@ -2194,13 +2194,6 @@
   <block id="b6a8ac29724d88dfaec657edda424d98" category="paragraph">ホストと NetApp HCI バックエンドと SolidFire バックエンドの間の認証を確保するために、双方向の CHAP を導入することを推奨します。Astra Trident は、テナントごとに 2 つの CHAP パスワードを含むシークレットオブジェクトを使用します。Trident を CSI プロビジョニングツールとしてインストールすると、 CHAP シークレットが管理され、それぞれの PV の「 tridentvolume 」 CR オブジェクトに格納されます。PV を作成すると、 CSI Astra Trident は CHAP シークレットを使用して iSCSI セッションを開始し、 CHAP を介して NetApp HCI および SolidFire システムと通信します。</block>
   <block id="19cde2e69238c98382d677e2583cbc46" category="admonition">CSI Trident によって作成されたボリュームは、どのボリュームアクセスグループにも関連付けられていません。</block>
   <block id="3179d8563cd49690a141c34c045dfab8" category="paragraph">CSI 以外のフロントエンドでは、ワーカーノード上のデバイスとしてのボリュームの接続は Kubernetes で処理されます。ボリュームの作成後、 Astra Trident が NetApp HCI / SolidFire システムに対して API 呼び出しを実行し、テナントのシークレットがない場合はシークレットを取得します。Trident が Kubernetes にシークレットを渡します。各ノード上の kubelet は Kubernetes API を介してシークレットにアクセスし、ボリュームにアクセスする各ノードとボリュームが配置されている NetApp HCI / SolidFire システム間で CHAP を実行 / 有効化するために使用します。</block>
-  <block id="34c4dac14496e9c45d92f345d9392fc8" category="summary">最新バージョンを実行していない場合は、以前のリリースの Astra Trident のドキュメントを参照できます。</block>
-  <block id="ba09ee47d11962c1ccd13d7e1f10e6c5" category="doc">以前のバージョンのドキュメント</block>
-  <block id="b0f4f0ac7ea6be4c3047dd422c23539b" category="paragraph">Astra Trident 22.01 を実行していない場合は、以前のリリースのドキュメントを参照できます。</block>
-  <block id="cce172403b73af5c2a4e93081affcc7f" category="inline-link">Astra Trident 21.10</block>
-  <block id="606b9e83fb467a43b3065d4fd5037094" category="list-text"><block ref="606b9e83fb467a43b3065d4fd5037094" category="inline-link-rx"></block></block>
-  <block id="a93e9e44b7a375a4236260f5ff2b251e" category="inline-link">Astra Trident 21.07</block>
-  <block id="3830d427e146a8a64454dc373d9b1502" category="list-text"><block ref="3830d427e146a8a64454dc373d9b1502" category="inline-link-rx"></block></block>
   <block id="dec54888538ac86f51d29a3d043e6bf6" category="summary">既存の Astra Trident インストールは、オペレータが簡単にアップグレードできます。</block>
   <block id="5ff3faebb0ff710340bdbee89a4667ad" category="doc">オペレータにアップグレードしてください</block>
   <block id="056b6e39cb1ae24d946674f95697989a" category="paragraph">既存の Astra Trident インストールは、オペレータが簡単にアップグレードできます。</block>
@@ -2867,8 +2860,6 @@
   <block id="5dd03e8d039863e563e049be198c3fd3" category="doc">リリースノート</block>
   <block id="2e6ce374ac42de81aea6a3d682b92e33" category="paragraph">リリースノートでは、最新バージョンの Astra Trident の新機能、拡張機能、およびバグ修正に関する情報を提供しています。</block>
   <block id="e4c4d344a524d21b898e4d04b6539aa7" category="admonition">インストーラ zip ファイルに含まれている Linux の tridentctl バイナリは ' テスト済みでサポートされているバージョンですzip ファイルの「 /extras 」部分に含まれている「 macos 」バイナリはテストされておらず、サポートされていないことに注意してください。</block>
-  <block id="368b120a3b5f53a49dc3ab96ec9b8dbd" category="paragraph">ネットアップは、製品やサービスの改善と強化を継続的に行っています。Astra Trident の最新機能をいくつかご紹介します。以前のリリースについては、を参照してください<block ref="25da125dffad1d6323c21354bccf0203" category="inline-link-rx"></block>。</block>
-  <block id="7072ec708b0ea7e3243747d8b79c0d20" category="admonition">以前のリリースの Trident からアップグレードして Azure NetApp Files を使用する場合 ' 現在 'location`config パラメータは ' 必須のシングルトンフィールドになっています</block>
   <block id="41cf959adc98386b54829d71a6ed5d37" category="section-title">の修正</block>
   <block id="a98b2ebbcbb381d3abc81e2ecfb2054c" category="inline-link-macro">GitHub 問題 #691</block>
   <block id="61465c1d4383dd4afdf168925e15e767" category="list-text">削除したノードでボリュームを非公開にする問題 を修正しました。（<block ref="5fee6ab43e8008edba54375694a29266" category="inline-link-macro-rx"></block>)</block>
@@ -2943,7 +2934,6 @@
   <block id="b622c74429f1282e8ed1f79ee8d53260" category="paragraph">コンテナユーザー（ Astra Trident 開発者を含む）の活発なパブリックコミュニティが、「 containers 」チャネルにも存在します<block ref="e5c49b87a1fe6d362b72260d2620cf35" category="inline-link-rx"></block>。プロジェクトに関する一般的な質問をしたり、同じような気のある同僚と関連するトピックについて話し合うのには、この場所が最適です。</block>
   <block id="d327e8f24b63b83e091dccdc48dd7b1b" category="sidebar">Astra Trident のドキュメント</block>
   <block id="7d0ee6fed10d3d4e5c9ee496729ab519" category="sidebar">リリースノート</block>
-  <block id="93168a8084b3e838d2932c4734bd234e" category="sidebar">以前のバージョン</block>
   <block id="eb1f347fa6176ae2c9175df3bc414954" category="sidebar">Astra Trident を使用</block>
   <block id="f14894e4c400a400c02367258a93029a" category="sidebar">Trident for Docker が必要です</block>
   <block id="e08bfc79c5202517b3814efd6e82fb2c" category="sidebar">Trident をアップグレードまたはアンインストールする</block>
@@ -3070,4 +3060,5 @@
   <block id="f8b52d963f246a75dc6c8b78c954a4fd" category="list-text"><block ref="f8b52d963f246a75dc6c8b78c954a4fd" category="inline-link-rx"></block></block>
   <block id="b6780b7b2561935ff862fe7126cde751" category="list-text"><block ref="b6780b7b2561935ff862fe7126cde751" category="inline-link-rx"></block></block>
   <block id="b9a641d903e611a87a5e68ac7fdb0b84" category="list-text">Trident AutoSupport は、個人情報（ PII ）や個人情報を収集または送信しません。Tridentコンテナイメージ自体には適用されないが付属して<block ref="173a360b412944768c2ab13e6c8fd1c7" category="inline-link-rx"></block> います。データのセキュリティと信頼に対するネットアップの取り組みについて詳しくは、こちらをご覧<block ref="d3cc55401bc8303e01c6b0c43ba0733f" category="inline-link-rx"></block>ください。</block>
+  <block id="9bbe247417ec112bd7f3be36a4035717" category="paragraph">ネットアップは、製品やサービスの改善と強化を継続的に行っています。Astra Trident の最新機能をいくつかご紹介します。</block>
 </blocks>
