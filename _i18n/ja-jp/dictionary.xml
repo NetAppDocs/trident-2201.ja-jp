@@ -3061,4 +3061,17 @@
   <block id="b6780b7b2561935ff862fe7126cde751" category="list-text"><block ref="b6780b7b2561935ff862fe7126cde751" category="inline-link-rx"></block></block>
   <block id="b9a641d903e611a87a5e68ac7fdb0b84" category="list-text">Trident AutoSupport は、個人情報（ PII ）や個人情報を収集または送信しません。Tridentコンテナイメージ自体には適用されないが付属して<block ref="173a360b412944768c2ab13e6c8fd1c7" category="inline-link-rx"></block> います。データのセキュリティと信頼に対するネットアップの取り組みについて詳しくは、こちらをご覧<block ref="d3cc55401bc8303e01c6b0c43ba0733f" category="inline-link-rx"></block>ください。</block>
   <block id="9bbe247417ec112bd7f3be36a4035717" category="paragraph">ネットアップは、製品やサービスの改善と強化を継続的に行っています。Astra Trident の最新機能をいくつかご紹介します。</block>
+  <block id="6c0abaa198495bc62a07a25b5120401b" category="sidebar">Astra Trident は、ネットアップが管理しているオープンソースのストレージプロビジョニングおよびオーケストレーションツールです。このコンテナを使用すると、 Docker と Kubernetes で管理されるコンテナ化アプリケーション用のストレージボリュームを作成できます。パッチリリースの変更など、完全なリリース情報については、https://docs.netapp.com/us-en/trident/trident-rn.html.を参照してください。</block>
+  <block id="0629fb104936d0fb60cc736b6cb01caa" category="sidebar">Astra Trident の要件</block>
+  <block id="33871b6190a8d5adbe8b15282054766c" category="sidebar">新機能</block>
+  <block id="1fe917b01f9a3f87fa2d7d3b7643fac1" category="sidebar">よくある質問</block>
+  <block id="312b0dc38b01ff32c1b2f5f81ee1ab2d" category="sidebar">Trident オペレータとともに導入</block>
+  <block id="6a693eb5cd23e4e5743663c7edc37aed" category="sidebar">Astra Trident for Docker を導入</block>
+  <block id="386307d41b3f4169a1e6e046a727cdd2" category="sidebar">Trident のオペレータにアップグレード</block>
+  <block id="81a123ccab93cd947289b672b0e50348" category="sidebar">デモとチュートリアル</block>
+  <block id="28348a71bed382b86fa6de4d3a307715" category="sidebar">Astra Trident のビデオ</block>
+  <block id="813011e2103649bb71f124adedcc10ea" category="sidebar">ブログとコミュニティ</block>
+  <block id="6394eceb2639574114b02e6e817eb19a" category="sidebar">Astra ブログ</block>
+  <block id="874d8a5301794a9ca2aba132ac2460f3" category="sidebar">Kubernetes ハブ</block>
+  <block id="d59c00abbeaf33a9a094b3a69c563405" category="sidebar">netapp.io のコマンドです</block>
 </blocks>
